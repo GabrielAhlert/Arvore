@@ -27,15 +27,26 @@ class Arvore:
             pass
         pass
 
-    def imprimir(self):
+    def tostring(self):
         if self is not None:
-            print(self.valor)
-            Arvore.imprimir(self.esq)
-            Arvore.imprimir(self.dir)
+            esq = str(Arvore.tostring(self.esq))
+            dir = str(Arvore.tostring(self.dir))
+            return str(self.valor)+ " \n" + esq + dir
             pass
+        else:
+            return ""
         pass
+
 
 
     pass
 
 
+arv = Arvore.new(Arvore, 10)
+arv.inserir(9)
+arv.inserir(11)
+arv.inserir(13)
+arv.inserir(12)
+arv.inserir(13)
+arv.inserir(12)
+print(arv.tostring())
